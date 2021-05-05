@@ -49,7 +49,7 @@ window.onload  = () => {
             // add a new line after each row of stars
             diamond.innerHTML += `<br>`;
         }
-        // if the input is zero add and extra star for the bottom row
+        // if the input is even add and extra star for the bottom row
         if(input % 2 === 0) {
             // add the spaces for last row
             for(let k = 1; k<= input-1; k++){
@@ -59,4 +59,39 @@ window.onload  = () => {
             diamond.innerHTML += `*`;
         }
     }
+
+    // set constant for one second
+    const SECOND = 1000;
+
+    // Function to move diamond back and forth
+    setInterval( () => {
+
+        // get the widths of viewport and element, get left location
+        let width = window.innerWidth;
+        let dwidth = diamond.offsetWidth;
+        let leftside = diamond.offsetLeft;
+
+        // marker to not edit leftside while moving to the left
+        let marker = 0;
+
+        // move diamond right if it is not at end of viewport
+        if(leftside < width-dwidth){
+            leftside += 1;
+            diamond.style.left = leftside + `px`;
+            marker = leftside;
+        }
+        // move the diamond back to the left once reaches end
+        else {
+            // move left until its at 0px left
+            if(marker > 0){
+                marker -= 1;
+                diamond.style.left = marker + `px`;
+            }
+            // once marker is 0, set leftside to 0
+            else{
+                leftside = 0;
+            }
+        }
+
+    }, (SECOND/100) );
 };
