@@ -19,7 +19,7 @@ window.onload  = () => {
     for(let i = 1; i <= input; i+= 2){
         // add spaces to center the row
         for(let j = input-1; j >= i; j--){
-            diamond.innerHTML += ` `;
+            diamond.innerHTML += `&nbsp;`;
         }
         // add appropraite number of stars
         for(let k = 1; k<= i; k++){
@@ -39,8 +39,8 @@ window.onload  = () => {
         // create the lower half of the diamond
         for(let i = 1; i <= input-2; i+=2){
             // add spaces to center the row
-            for(let k = 1; k<= i; k++){
-                diamond.innerHTML += ` `;
+            for(let k = 1; k<= i+1; k++){
+                diamond.innerHTML += `&nbsp;`;
             }
             // add appropriate number of stars
             for(let j = i; j <= input-2; j++){
@@ -51,6 +51,10 @@ window.onload  = () => {
         }
         // if the input is zero add and extra star for the bottom row
         if(input % 2 === 0) {
+            // add the spaces for last row
+            for(let k = 1; k<= input-1; k++){
+                diamond.innerHTML += `&nbsp;`;
+            }
             // add the last star
             diamond.innerHTML += `*`;
         }
