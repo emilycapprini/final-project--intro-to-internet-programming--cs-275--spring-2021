@@ -60,8 +60,9 @@ window.onload  = () => {
         }
     }
 
-    // set constant for one second
+    // set constant for one second and find left of diamond
     const SECOND = 1000;
+    let leftside = diamond.offsetLeft;
 
     // Function to move diamond back and forth
     setInterval( () => {
@@ -69,7 +70,6 @@ window.onload  = () => {
         // get the widths of viewport and element, get left location
         let width = window.innerWidth;
         let dwidth = diamond.offsetWidth;
-        let leftside = diamond.offsetLeft;
 
         // marker to not edit leftside while moving to the left
         let marker = 0;
