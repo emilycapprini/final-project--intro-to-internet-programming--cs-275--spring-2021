@@ -31,7 +31,7 @@ window.onload  = () => {
         holder = i + 1;
         // if input is even set i = 0 so it prints only an even amount of stars
         if(input % 2 === 0 && i === 1){
-        i = 0;
+            i = 0;
         }
     }
     // if it has printed the input number of stars
