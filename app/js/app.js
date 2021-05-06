@@ -23,7 +23,12 @@ window.onload  = () => {
         }
         // add appropraite number of stars
         for(let k = 1; k<= i; k++){
-            diamond.innerHTML += `* `;
+            if(k === i){
+                diamond.innerHTML += `*`
+            }
+            else{
+                diamond.innerHTML += `* `;
+            }
         }
         // add a new line after each row of stars
         diamond.innerHTML += `<br>`;
@@ -34,30 +39,32 @@ window.onload  = () => {
             i = 0;
         }
     }
-    // if it has printed the input number of stars
-    if (holder === input+1){
-        // create the lower half of the diamond
-        for(let i = 1; i <= input-2; i+=2){
-            // add spaces to center the row
-            for(let k = 1; k<= i+1; k++){
-                diamond.innerHTML += `&nbsp;`;
+    // create the lower half of the diamond
+    for(let i = 1; i <= input-2; i+=2){
+        // add spaces to center the row
+        for(let k = 1; k<= i+1; k++){
+            diamond.innerHTML += `&nbsp;`;
+        }
+        // add appropriate number of stars
+        for(let j = i; j <= input-2; j++){
+            if(j === input-2){
+                diamond.innerHTML += `*`
             }
-            // add appropriate number of stars
-            for(let j = i; j <= input-2; j++){
+            else{
                 diamond.innerHTML += `* `;
             }
-            // add a new line after each row of stars
-            diamond.innerHTML += `<br>`;
         }
-        // if the input is even add and extra star for the bottom row
-        if(input % 2 === 0) {
-            // add the spaces for last row
-            for(let k = 1; k<= input-1; k++){
-                diamond.innerHTML += `&nbsp;`;
-            }
-            // add the last star
-            diamond.innerHTML += `*`;
+        // add a new line after each row of stars
+        diamond.innerHTML += `<br>`;
+    }
+    // if the input is even add and extra star for the bottom row
+    if(input % 2 === 0) {
+        // add the spaces for last row
+        for(let k = 1; k<= input-1; k++){
+            diamond.innerHTML += `&nbsp;`;
         }
+        // add the last star
+        diamond.innerHTML += `*`;
     }
 
     // set constant for one second, find left of diamond, set marker to 0
