@@ -3,7 +3,7 @@ window.onload  = () => {
     let input = `nothing`;
 
     // While input is not a number and too small keep prompting for new input
-    while(isNaN(input.valueOf()) || input.valueOf() < 2){
+    while(isNaN(input.valueOf()) || input.valueOf() < 1){
         input = window.prompt(`Enter the size of your diamond as a number:`);
     }
     // Rounding up the input to an integer
@@ -13,8 +13,6 @@ window.onload  = () => {
     let diamond = document.getElementById(`diamond`);
 
     // Making the diamond
-    // variable to maintain the i value for outside the for loop
-    let holder = 0;
     // create the upper half of the diamond
     for(let i = 1; i <= input; i+= 2){
         // add spaces to center the row
@@ -24,7 +22,7 @@ window.onload  = () => {
         // add appropraite number of stars
         for(let k = 1; k<= i; k++){
             if(k === i){
-                diamond.innerHTML += `*`
+                diamond.innerHTML += `*`;
             }
             else{
                 diamond.innerHTML += `* `;
@@ -32,8 +30,6 @@ window.onload  = () => {
         }
         // add a new line after each row of stars
         diamond.innerHTML += `<br>`;
-        // update the holder variable
-        holder = i + 1;
         // if input is even set i = 0 so it prints only an even amount of stars
         if(input % 2 === 0 && i === 1){
             i = 0;
@@ -48,7 +44,7 @@ window.onload  = () => {
         // add appropriate number of stars
         for(let j = i; j <= input-2; j++){
             if(j === input-2){
-                diamond.innerHTML += `*`
+                diamond.innerHTML += `*`;
             }
             else{
                 diamond.innerHTML += `* `;
