@@ -4,7 +4,7 @@ window.onload  = () => {
 
     // While input is not a number and too small keep prompting for new input
     while(isNaN(input.valueOf()) || input.valueOf() < 1){
-        input = window.prompt(`Enter the size of your diamond as a number:`);
+        input = window.prompt(`Enter the size of your diamond as a number: \n(decimals will be rounded up)`);
     }
     // Rounding up the input to an integer
     input = Math.ceil(parseFloat(input));
